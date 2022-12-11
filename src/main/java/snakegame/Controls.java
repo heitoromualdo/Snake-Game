@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 
 public class Controls {
     public KeyAdapter addKeyListener(Graphics graphics) {
-        KeyAdapter keyAdapter = new KeyAdapter() {
+        return new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (graphics.isMoving) {
@@ -32,11 +32,12 @@ public class Controls {
                             break;
                     }
                 } else {
-                    graphics.start();
+                    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                        graphics.start();
+                    }
                 }
             }
         };
-        return keyAdapter;
     }
 
     protected void move(Graphics graphics) {

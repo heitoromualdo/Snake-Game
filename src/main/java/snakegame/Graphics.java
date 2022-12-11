@@ -9,11 +9,11 @@ public class Graphics extends JPanel implements ActionListener {
 
     public static final int WIDTH = 800;
     public static final int HEIGHT = 800;
-    public static final int TICK_SIZE = 50;
+    public static final int TICK_SIZE = 40;
     public static final int BOARD_SIZE = (WIDTH * HEIGHT) / (TICK_SIZE * TICK_SIZE);
     int[] snakePosX = new int[BOARD_SIZE];
     int[] snakePosY = new int[BOARD_SIZE];
-    public final Font font = new Font("TimesRoman", Font.BOLD, 30);
+    public final Font font = new Font("Monospaced", Font.BOLD, 30);
     public int snakeLength;
     public Food food;
     public int foodEaten;
@@ -31,7 +31,6 @@ public class Graphics extends JPanel implements ActionListener {
     }
 
     protected void start() {
-        System.out.println("dentro do start");
         snakePosX = new int[BOARD_SIZE];
         snakePosY = new int[BOARD_SIZE];
         snakeLength = 2;
@@ -58,7 +57,7 @@ public class Graphics extends JPanel implements ActionListener {
             }
         } else {
             String scoreText = String.format("Score: " + foodEaten);
-            String playAgainText = String.format("Press any key to play again!");
+            String playAgainText = String.format("Press ENTER to play again!");
             g.setColor(Color.GREEN);
             g.setFont(font);
             g.drawString(scoreText, (WIDTH - getFontMetrics(g.getFont()).stringWidth(scoreText)) / 2, (HEIGHT - getFontMetrics(g.getFont()).stringWidth(playAgainText)) / 2);
